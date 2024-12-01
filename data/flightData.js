@@ -65,7 +65,7 @@ export const flights = [
         destination: "LAX",
         departureDate: "25/07/2025",
         departureTime: "22:00",
-        arrivalDate: "25/07/2025",
+        arrivalDate: "26/07/2025",
         arrivalTime: "16:00",
         seats: 300
     },
@@ -93,7 +93,7 @@ export const flights = [
         flightNumber: "NH7",
         origin: "NRT",
         destination: "SEA",
-        departureDate: "30/07/2025",
+        departureDate: "29/07/2025",
         departureTime: "18:20",
         arrivalDate: "30/07/2025",
         arrivalTime: "10:30",

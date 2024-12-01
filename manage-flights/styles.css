@@ -1,4 +1,4 @@
-/* General Layout */
+General Layout
 body {
     display: flex;
     flex-direction: column; /* Stack header, main, and footer */

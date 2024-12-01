@@ -19,3 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     flights.forEach(renderFlightRow);
 });
+
+document.getElementById('add-flight').addEventListener('click', () => {
+    window.location.href = '../add-flight-form/add-flight.html';
+});
