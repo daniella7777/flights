@@ -1,11 +1,4 @@
 /* Homepage-specific styles */
-header {
-    background-color: #004080; /* Blue background */
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
 .links-container {
     display: flex;
     flex-direction: column;
