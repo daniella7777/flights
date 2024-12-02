@@ -1,4 +1,25 @@
+import { destinations } from '../data/destinationData.js'; // Update the path as necessary
 import { Flight } from '../classes/flight.js';
+
+// Function to populate select options with destinations
+function populateSelectors() {
+    const originSelect = document.getElementById('origin');
+    const destinationSelect = document.getElementById('destination');
+
+    // Populate selectors with destinations
+    destinations.forEach(destination => {
+        const option = document.createElement('option');
+        option.value = destination.code; // Set the value to the destination code
+        option.textContent = `${destination.name} (${destination.code})`; // Display name and code
+
+        // Append option to both origin and destination selectors
+        originSelect.appendChild(option.cloneNode(true));
+        destinationSelect.appendChild(option);
+    });
+}
+
+// Call populateSelectors on page load
+document.addEventListener('DOMContentLoaded', populateSelectors);
 
 document.getElementById('add-flight-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -13,9 +34,8 @@ document.getElementById('add-flight-form').addEventListener('submit', function (
     const seats = parseInt(document.getElementById('seats').value, 10);
 
     try {
-        // Use Flight class for validation
-        new Flight(flightNumber, origin, destination, boardingDate, boardingTime, arrivalDate, arrivalTime, seats);
-        alert('Flight added successfully!');
+        const newFlight = new Flight(flightNumber, origin, destination, boardingDate, boardingTime, arrivalDate, arrivalTime, seats);
+        alert(`Flight added successfully!\n\nDetails:\nFlight Number: ${newFlight.flightNumber}\nOrigin: ${newFlight.origin}\nDestination: ${newFlight.destination}\nBoarding: ${newFlight.boardingDate} ${newFlight.boardingTime}\nArrival: ${newFlight.arrivalDate} ${newFlight.arrivalTime}\nSeats: ${newFlight.seats}`);
         window.location.href = '../manage-flights/index.html';
     } catch (error) {
         alert(`Error: ${error.message}`);
