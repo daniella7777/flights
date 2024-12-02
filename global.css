@@ -6,9 +6,6 @@ body {
     background-color: #d3d3d3; /* Light grey background */
     color: #333; /* Dark gray text */
     line-height: 1.6; /* Better readability */
-    display: flex;
-    flex-direction: column; /* Ensure proper layout for header, main, footer */
-    min-height: 100vh; /* Full viewport height */
 }
 
 /* Header Styling */
@@ -19,10 +16,9 @@ body {
     display: flex;
     justify-content: center; /* Center the headline horizontally */
     align-items: center; /* Center the headline vertically */
-    height: 150px; /* Fixed height for a larger header */
+    height: 150px; /* Set a fixed height for a larger header */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
     font-family: 'Lato', Arial, sans-serif; /* Match the font with the rest of the page */
-    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .site-header a.logo {
@@ -33,14 +29,6 @@ body {
     margin: 0;
     cursor: pointer;
     line-height: 1.2; /* Ensure proper spacing between lines for multi-line text */
-}
-
-/* Main Content */
-main {
-    flex: 1; /* Allow the main content to grow and take available space */
-    padding: 20px; /* Add padding around content */
-    overflow-y: auto; /* Enable vertical scrolling */
-    box-sizing: border-box; /* Include padding in calculations */
 }
 
 /* Footer Styling */
@@ -55,7 +43,6 @@ main {
     align-items: center;
     justify-content: flex-end; /* Align the question mark to the right */
     padding: 10px 20px;
-    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .site-footer a {
@@ -63,11 +50,4 @@ main {
     font-size: 1.5rem; /* Icon size */
     color: grey;
     margin-right: 20px; /* Prevent the ? from being too close to the edge */
-}
-
-/* Scrollable Tables (Optional for all pages with tables) */
-.table-container {
-    max-height: calc(100vh - 200px); /* Prevent overflow beyond viewport */
-    overflow-y: auto; /* Enable vertical scrolling for long tables */
-    margin-bottom: 50px; /* Ensure it doesn’t overlap the footer */
 }

@@ -6,12 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderDestinationRow = (destination) => {
         const row = document.createElement('tr');
         row.innerHTML = `
+            <td>${destination.code}</td>
             <td>${destination.name}</td>
-            <td><img src="${destination.picture}" alt="${destination.name}" width="100"></td>
             <td>${destination.airportName}</td>
             <td><a href="${destination.airportWebsite}" target="_blank">${destination.airportWebsite}</a></td>
             <td>${destination.email}</td>
-            <td>${destination.code}</td>
+            <td><img src="${destination.picture}" alt="${destination.name}" width="100"></td>
         `;
         destinationsTable.appendChild(row);
     };
