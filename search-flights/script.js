@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Render a row in the table
     const renderFlightRow = (flight) => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -32,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${flight.seats}</td>
             <td><button class="book-btn">Book</button></td>
         `;
+        
+        // Add click event to the "Book" button
+        row.querySelector('.book-btn').addEventListener('click', () => {
+            // Redirect to book-flight.html with query parameters
+            window.location.href = `../book-flight-form/book-flight.html?flightNumber=${flight.flightNumber}`;
+        });
         flightsTable.appendChild(row);
     };
 

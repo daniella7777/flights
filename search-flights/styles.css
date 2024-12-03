@@ -1,9 +1,29 @@
-/* Filter Container */
+
+/* Headlines Styling */
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #004080; /* Matches header blue color */
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.5rem; /* Larger size for main headline */
+}
+
+h2 {
+    font-size: 1.5rem; /* Smaller size for subheadline */
+    margin-bottom: 10px;
+}
+
+/* Adjust Filter Container Spacing */
 .filter-container {
+    margin-top: 10px;
+    margin-bottom: 30px; /* Add spacing after filters */
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 20px;
+    
 }
 
 /* Select Styling */

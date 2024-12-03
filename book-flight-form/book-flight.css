@@ -1,0 +1,75 @@
+main {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    max-height: calc(100vh - 200px); /* Adjust for header/footer height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+h1 {
+    color: #004080;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group, #passenger-details {
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    background-color: #004080;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+#flight-number {
+    display: none;
+}
+
+.flight-summary {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.flight-summary h2 {
+    font-size: 1.2rem; /* Match the desired font size */
+    margin: 8px 0;
+    color: #004080;
+    font-weight: normal; /* Ensure the main text stays regular */
+}
+
+.flight-summary .label {
+    font-weight: 600; /* Slightly bolder than normal (500-700 is bold range) */
+    color: #004080; /* Keep consistent color */
+}
