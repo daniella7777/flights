@@ -40,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
         flightsTable.appendChild(row);
     };
 
+    // Parse date string in dd/mm/yyyy format to a JavaScript Date object
+    const parseDate = (dateStr) => {
+        const [day, month, year] = dateStr.split('/').map(Number);
+        return new Date(year, month - 1, day); // JavaScript months are 0-indexed
+    };
+
     // Filter and display flights based on selected origin and destination
     const filterFlights = () => {
         const origin = originSelect.value;
@@ -47,12 +53,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         flightsTable.innerHTML = ''; // Clear the table
 
-        flights
-            .filter(flight => 
-                (origin === '' || flight.origin === origin) && 
-                (destination === '' || flight.destination === destination)
-            )
-            .forEach(renderFlightRow);
+        // Filter flights based on selected criteria
+        const filteredFlights = flights.filter(flight => 
+            (origin === '' || flight.origin === origin) && 
+            (destination === '' || flight.destination === destination)
+        );
+
+        if (filteredFlights.length === 0) {
+            // Show an alert if no flights are found
+            alert('No flights match the selected filters.');
+            return;
+        }
+
+        // Sort flights by departure date and time
+        const sortedFlights = filteredFlights.sort((a, b) => {
+            const dateA = parseDate(a.departureDate);
+            const dateB = parseDate(b.departureDate);
+
+            // Compare departure dates first
+            if (dateA.getTime() !== dateB.getTime()) {
+                return dateA - dateB;
+            }
+
+            // If dates are the same, compare times
+            const timeA = a.departureTime.split(':').map(Number);
+            const timeB = b.departureTime.split(':').map(Number);
+            const timeValueA = timeA[0] * 60 + timeA[1]; // Convert hours and minutes to minutes
+            const timeValueB = timeB[0] * 60 + timeB[1];
+            return timeValueA - timeValueB;
+        });
+
+        // Render the sorted flights
+        sortedFlights.forEach(renderFlightRow);
     };
 
     // Populate origin and destination dropdowns
