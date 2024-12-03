@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
             alert(`Flight booked successfully!\n${reservationDetails}`);
             console.log('Reservation Details:', reservation);
+            // Redirect after the success alert
+            window.location.href = '../my-bookings/index.html';
     
         } catch (error) {
             alert(`Error: ${error.message}`);

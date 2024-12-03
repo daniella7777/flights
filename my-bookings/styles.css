@@ -1,0 +1,115 @@
+/* General Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #d3d3d3;
+    color: #333;
+    font-family: 'Lato', Arial, sans-serif;
+}
+
+/* Header Styling */
+.site-header {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+/* Footer Styling */
+.site-footer {
+    background-color: #f9f9f9;
+    color: grey;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    height: 50px;
+    width: 100%;
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center vertically */
+    margin-bottom: 70px;
+}
+
+/* Bookings Container */
+.bookings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%; /* Adjusted for better centering */
+    max-width: 800px; /* Limit the maximum width */
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better focus */
+}
+
+/* Booking Card */
+.booking-card {
+    display: flex;
+    flex-direction: row; /* Default direction */
+    align-items: center; /* Center content vertically */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* Add some padding */
+}
+/* Image Section */
+.booking-image img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+/* Details Section */
+.booking-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #333;
+}
+
+.booking-details p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-card {
+        flex-direction: column;
+    }
+
+    .booking-image img {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+}
