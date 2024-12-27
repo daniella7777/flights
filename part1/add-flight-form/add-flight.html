@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - Add Flight</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="add-flight.css">
+    <script type="module">
+        import { headerContent } from '../header.js';
+        import { footerContent } from '../footer.js';
+        import './add-flight.js';  // Import the form handling code
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('header').innerHTML = headerContent;
+            document.getElementById('footer').innerHTML = footerContent;
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <h1>Add New Flight</h1>
+        <form id="add-flight-form">
+            <div class="form-group">
+                <label for="flight-number">Flight Number:</label>
+                <input type="text" id="flight-number" name="flightNumber" placeholder="e.g., AA1234" required>
+            </div>
+
+            <div class="form-group">
+                <label for="origin">Origin:</label>
+                <select id="origin" name="origin" required>
+                    <option value="" disabled selected>Select Origin</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="" disabled selected>Select Destination</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="boarding-date">Boarding Date (dd/mm/yyyy):</label>
+                <input type="text" id="boarding-date" name="boardingDate" placeholder="dd/mm/yyyy" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival-date">Arrival Date (dd/mm/yyyy):</label>
+                <input type="text" id="arrival-date" name="arrivalDate" placeholder="dd/mm/yyyy" required>
+            </div>
+
+            <div class="form-group">
+                <label for="boarding-time">Boarding Time (hh:mm):</label>
+                <input type="text" id="boarding-time" name="boardingTime" placeholder="hh:mm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival-time">Arrival Time (hh:mm):</label>
+                <input type="text" id="arrival-time" name="arrivalTime" placeholder="hh:mm" required>
+            </div>
+
+            <div class="form-group">
+                <label for="seats">Number of Seats:</label>
+                <input type="number" id="seats" name="seats" min="1" placeholder="e.g., 180" required>
+            </div>
+
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <div id="footer"></div>
+</body>
+</html>

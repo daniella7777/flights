@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - My Bookings</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import { headerContent } from '../header.js';
+        import { footerContent } from '../footer.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('header').innerHTML = headerContent;
+            document.getElementById('footer').innerHTML = footerContent;
+        });
+    </script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <header id="header"></header>
+    <main>
+        <h1>My Bookings</h1>
+        <div id="bookings-container" class="bookings-container"></div>
+    </main>
+    <footer id="footer"></footer>
+</body>
+</html>

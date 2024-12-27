@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - Book a Flight</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="book-flight.css">
+    <script type="module">
+        import { headerContent } from '../header.js';
+        import { footerContent } from '../footer.js';
+        import './book-flight.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('header').innerHTML = headerContent;
+            document.getElementById('footer').innerHTML = footerContent;
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <h1>Book a Flight</h1>
+        <div id="flight-summary" class="flight-summary">
+            <!-- Flight details will be dynamically inserted here -->
+        </div>
+        <form id="book-flight-form">
+            <input type="hidden" id="flight-number" name="flightNumber" required>
+            <div class="form-group">
+                <label for="passenger-count">Number of Passengers:</label>
+                <input type="number" id="passenger-count" name="passengerCount" min="1" placeholder="e.g., 3" required>
+            </div>
+            <div id="passenger-details"></div>
+            <button type="submit">Save</button>
+        </form>
+    </main>
+    <div id="footer"></div>
+</body>
+</html>

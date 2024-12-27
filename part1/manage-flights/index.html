@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - Manage Flights</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import { headerContent } from '../header.js';
+        import { footerContent } from '../footer.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('header').innerHTML = headerContent;
+            document.getElementById('footer').innerHTML = footerContent;
+        });
+    </script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <header id="header"></header>
+    <main>
+        <h1>Manage Flights</h1>
+        <div class="table-container">
+            <table class="flights-table">
+                <thead>
+                    <tr>
+                        <th>Flight No.</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Date</th>
+                        <th>Arrival Time</th>
+                        <th>Seats</th>
+                    </tr>
+                </thead>
+                <tbody id="flights-table">
+                    <!-- Rows dynamically added -->
+                </tbody>
+            </table>
+        </div>
+        <button id="add-flight">Add Flight</button>
+    </main>
+    <footer id="footer"></footer>
+</body>
+</html>
