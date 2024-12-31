@@ -1,0 +1,26 @@
+<section class="p-4">
+  <h2 class="text-2xl mb-6">Last minute flights</h2>
+  
+  <div *ngIf="lastMinuteFlights.length === 0" class="text-center p-4">
+    No last minute flights available at this time.
+  </div>
+
+  <div class="grid">
+    <mat-card 
+      *ngFor="let flight of lastMinuteFlights" 
+      class="cursor-pointer hover:shadow-lg transition-shadow"
+      [routerLink]="['/book-flight', flight.flightNumber]"
+    >
+      <img 
+        [src]="getDestinationImage(flight.destination)" 
+        [alt]="getDestinationName(flight.destination)"
+        class="w-full h-48 object-cover"
+        mat-card-image
+      >
+      <mat-card-content class="p-4 text-center">
+        <p class="text-lg">{{getDestinationName(flight.destination)}}</p>
+        <p>{{flight.departureDate | date:'dd.MM.yyyy'}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
