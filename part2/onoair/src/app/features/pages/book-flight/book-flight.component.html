@@ -1,27 +1,37 @@
-<div class="container">
-  <mat-card class="title-card" *ngIf="!error && flight">
-    <mat-card-header>
-      <mat-card-title>Flight Details: {{flight.flightNumber}}</mat-card-title>
-    </mat-card-header>
-  </mat-card>
-  
-  <mat-card *ngIf="!error && flight">
-    <mat-card-content>
-      <div class="flight-details">
-        <p><strong>Origin:</strong> {{getAirportName(flight.origin)}}</p>
-        <p><strong>Boarding:</strong> {{flight.departureDate | date:'dd/MM/yyyy HH:mm'}}</p>
-        <p><strong>Destination:</strong> {{getAirportName(flight.destination)}}</p>
-        <p><strong>Landing:</strong> {{flight.arrivalDate | date:'dd/MM/yyyy HH:mm'}}</p>
-      </div>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card *ngIf="error" class="error-card">
-    <mat-card-header>
-      <mat-card-title>Error</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Flight not found</p>
-    </mat-card-content>
-  </mat-card>
-</div>
+<section>
+  <h2>Book Flight</h2>
+  <div class="container">
+    @if (!error && flight) {
+      <mat-card>
+        <mat-card-content class="p-4">
+          <div class="regular-text">Flight Details - {{flight.flightNumber}}</div>
+          <div class="details-grid">
+            <div class="detail-row">
+              <div class="label">Origin:</div>
+              <div class="value">{{getAirportName(flight.origin)}}</div>
+            </div>
+            <div class="detail-row">
+              <div class="label">Boarding:</div>
+              <div class="value">{{flight.departureDate | date:'dd/MM/yyyy HH:mm'}}</div>
+            </div>
+            <div class="detail-row">
+              <div class="label">Destination:</div>
+              <div class="value">{{getAirportName(flight.destination)}}</div>
+            </div>
+            <div class="detail-row">
+              <div class="label">Landing:</div>
+              <div class="value">{{flight.arrivalDate | date:'dd/MM/yyyy HH:mm'}}</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    } @else {
+      <mat-card class="error-card">
+        <mat-card-content class="text-center">
+          <div class="error-title">Flight Not Found</div>
+          <p class="error-message">The requested flight number does not exist in our system.</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</section>
