@@ -4,7 +4,7 @@
   <mat-form-field>
     <mat-label>Search By</mat-label>
     <mat-select [(ngModel)]="searchCategory" (selectionChange)="onCategoryChange()">
-      <mat-option value="all">Display All</mat-option>
+      <mat-option value="all">All Flights</mat-option>
       <mat-option value="destination">Destination</mat-option>
       <mat-option value="origin">Origin</mat-option>
       <mat-option value="departureDate">Departure Date</mat-option>
@@ -12,42 +12,44 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field *ngIf="searchCategory !== 'all' && (searchCategory === 'destination' || searchCategory === 'origin')">
+  <mat-form-field *ngIf="searchCategory === 'destination' || searchCategory === 'origin'">
     <mat-label>Enter {{ searchCategory | titlecase }}</mat-label>
-    <input matInput [(ngModel)]="searchTerm">
+    <input matInput [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()">
   </mat-form-field>
 
-  <mat-form-field *ngIf="searchCategory !== 'all' && (searchCategory === 'departureDate' || searchCategory === 'arrivalDate')">
+  <mat-form-field *ngIf="searchCategory === 'departureDate' || searchCategory === 'arrivalDate'">
     <mat-label>Choose date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="searchDate">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="searchDate" (ngModelChange)="applyFilter()">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="applyFilter()" *ngIf="searchCategory !== 'all'">
-    Search
-  </button>
 </div>
 
-<h3 *ngIf="filteredFlights.length === 0" class="no-results">
-  No flights available with the selected filters
-</h3>
-
-<div class="table-container" *ngIf="filteredFlights.length > 0">
-  <table mat-table [dataSource]="filteredFlights" class="mat-elevation-z8">
+<div class="table-container">
+  <table mat-table [dataSource]="filteredFlights" class="mat-elevation-z8" *ngIf="filteredFlights.length > 0">
     <ng-container matColumnDef="flightNumber">
       <th mat-header-cell *matHeaderCellDef>Flight No.</th>
       <td mat-cell *matCellDef="let flight">{{flight.flightNumber}}</td>
     </ng-container>
 
     <ng-container matColumnDef="origin">
-      <th mat-header-cell *matHeaderCellDef>Origin</th>
+      <th mat-header-cell *matHeaderCellDef>Origin Code</th>
       <td mat-cell *matCellDef="let flight">{{flight.origin}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="originName">
+      <th mat-header-cell *matHeaderCellDef>Origin City</th>
+      <td mat-cell *matCellDef="let flight">{{getAirportName(flight.origin)}}</td>
+    </ng-container>
+
     <ng-container matColumnDef="destination">
-      <th mat-header-cell *matHeaderCellDef>Destination</th>
+      <th mat-header-cell *matHeaderCellDef>Destination Code</th>
       <td mat-cell *matCellDef="let flight">{{flight.destination}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="destinationName">
+      <th mat-header-cell *matHeaderCellDef>Destination City</th>
+      <td mat-cell *matCellDef="let flight">{{getAirportName(flight.destination)}}</td>
     </ng-container>
 
     <ng-container matColumnDef="departureDate">
@@ -85,4 +87,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  
+  <div class="no-results" *ngIf="filteredFlights.length === 0">
+    No flights match the filter
+  </div>
 </div>

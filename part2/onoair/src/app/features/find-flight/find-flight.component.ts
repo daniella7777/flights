@@ -11,6 +11,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { Flight } from '../models/flight.model';
 import { FlightsService } from '../services/flights/flights.service';
 import { Router } from '@angular/router';
+import { getAirportName } from '../../shared/utils';
 
 @Component({
   selector: 'app-find-flight',
@@ -38,7 +39,9 @@ export class FindFlightComponent implements OnInit {
   displayedColumns: string[] = [
     'flightNumber',
     'origin',
+    'originName',
     'destination',
+    'destinationName',
     'departureDate',
     'departureTime',
     'arrivalDate',
@@ -61,11 +64,17 @@ export class FindFlightComponent implements OnInit {
     this.filteredFlights = [...this.futureFlights];
   }
 
+  getAirportName(code: string): string {
+    return getAirportName(code);
+  }
+
   onCategoryChange() {
+    this.searchTerm = '';
+    this.searchDate = null;
     if (this.searchCategory === 'all') {
-      this.searchTerm = '';
-      this.searchDate = null;
       this.filteredFlights = [...this.futureFlights];
+    } else {
+      this.applyFilter();
     }
   }
 
