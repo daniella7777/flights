@@ -4,7 +4,7 @@ import {
     generateDatesForUpcomingWeek,
     generateDatesForFutureAfterWeek,
     generateDatesForPastYear
-} from '../../../shared/date-utils';
+} from '../../../shared/utils';
 
 @Injectable({
     providedIn: 'root',
@@ -16,7 +16,7 @@ export class FlightsService {
         // Generate dynamic dates
         const upcomingWeekDates = generateDatesForUpcomingWeek(3);
         const futureDates = generateDatesForFutureAfterWeek(2);
-        const pastDates = generateDatesForPastYear(5, 2023);
+        const pastDates = generateDatesForPastYear(5, 2024);
 
         // Assign flights with the dynamically generated dates
         this.flights = [
@@ -106,4 +106,8 @@ export class FlightsService {
     getFlights(): Flight[] {
         return this.flights;
     }
+
+    getFlight(flightNumber: string): Flight | undefined {
+        return this.flights.find(flight => flight.flightNumber === flightNumber);
+      }
 }

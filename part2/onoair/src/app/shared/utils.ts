@@ -45,3 +45,28 @@ export function generateDatesForPastYear(count: number, year: number): { departu
 
     return dates;
 }
+
+
+export const getAirportName = (code: string): string => {
+    const airports: { [key: string]: string } = {
+      'TLV': 'Tel Aviv',
+      'KRK': 'Krakow',
+      'LCA': 'Larnaca',
+      'ZRH': 'Zurich',
+      'LHR': 'London Heathrow',
+      'JFK': 'New York JFK',
+      'ATL': 'Atlanta',
+      'ORD': 'Chicago',
+      'CDG': 'Paris',
+      'FCO': 'Rome',
+      'DEN': 'Denver',
+      'SFO': 'San Francisco',
+      'SYD': 'Sydney',
+      'LAX': 'Los Angeles',
+      'DXB': 'Dubai',
+      'FRA': 'Frankfurt',
+      'NRT': 'Tokyo',
+      'SEA': 'Seattle'
+    };
+    return airports[code] || code;
+  };

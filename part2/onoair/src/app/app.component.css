@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  router-outlet + * {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  app-footer {
+    position: sticky;
+    bottom: 0;
+  }

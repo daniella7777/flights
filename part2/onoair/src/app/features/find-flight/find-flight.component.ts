@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Flight } from '../models/flight.model';
 import { FlightsService } from '../services/flights/flights.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-find-flight',
@@ -46,7 +47,10 @@ export class FindFlightComponent implements OnInit {
     'actions'
   ];
 
-  constructor(private flightsService: FlightsService) {}
+  constructor(
+    private flightsService: FlightsService,
+    private router: Router 
+  ) {}
 
   ngOnInit() {
     const allFlights = this.flightsService.getFlights();
@@ -96,6 +100,6 @@ export class FindFlightComponent implements OnInit {
   }
 
   bookFlight(flight: Flight) {
-    console.log('Booking flight:', flight);
+    this.router.navigate(['/book-flight', flight.flightNumber]);
   }
 }

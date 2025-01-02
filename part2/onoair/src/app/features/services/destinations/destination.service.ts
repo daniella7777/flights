@@ -91,4 +91,8 @@ export class DestinationService {
   getDestinations(): Destination[] {
     return this.destinations;
   }
+
+  getDestination(code: string): Destination | undefined {
+    return this.destinations.find(destination => destination.code === code);
+  }
 }

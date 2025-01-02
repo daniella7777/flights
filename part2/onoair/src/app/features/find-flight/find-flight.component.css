@@ -1,14 +1,16 @@
 h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  margin: 2rem 0 1.5rem;
+  font-size: 1.8rem;
   font-weight: 500;
   text-align: center;
+  color: #333;
+  font-family: 'Lato', Arial, sans-serif;
 }
 
 .search-container {
   display: flex;
   gap: 1rem;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
@@ -20,24 +22,60 @@ mat-form-field {
 }
 
 .table-container {
-  padding: 0 2rem;
+  margin: 20px auto 100px auto;  /* Added 100px bottom margin */
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 90%;
+  overflow-x: auto;
 }
 
-table {
+::ng-deep .mat-mdc-table {
   width: 100%;
-  margin-top: 20px;
+  border-collapse: collapse;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
 }
 
-th, td {
-  padding: 12px;
+::ng-deep .mat-mdc-header-cell {
+  background-color: #004080 !important;
+  color: white !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  padding: 12px !important;
+  border: 1px solid #333;
 }
 
-.mat-mdc-row:hover {
-  background-color: #f5f5f5;
+::ng-deep .mat-mdc-cell {
+  padding: 12px !important;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+::ng-deep .mat-mdc-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+::ng-deep .mat-mdc-row:nth-child(even) {
+  background-color: #ffffff;
+}
+
+::ng-deep .mat-mdc-row:hover {
+  background-color: #e6f7ff !important;
 }
 
 .no-results {
   text-align: center;
   color: #666;
   margin: 2rem 0;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  ::ng-deep .mat-mdc-cell,
+  ::ng-deep .mat-mdc-header-cell {
+    font-size: 0.9rem;
+    padding: 8px !important;
+  }
 }
