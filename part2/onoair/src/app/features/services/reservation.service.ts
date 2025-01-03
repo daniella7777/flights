@@ -166,15 +166,6 @@ export class ReservationService {
         return this.reservations.find(reservation => reservation.reservationCode === reservationCode);
     }
 
-    getReservationsByFlight(flightNumber: string): Reservation[] {
-        return this.reservations.filter(reservation => reservation.flightNumber === flightNumber);
-    }
 
-    getReservationsByPassengerName(name: string): Reservation[] {
-        return this.reservations.filter(reservation => 
-            reservation.passengers.some(passenger => 
-                passenger.name.toLowerCase().includes(name.toLowerCase())
-            )
-        );
-    }
+   
 }
