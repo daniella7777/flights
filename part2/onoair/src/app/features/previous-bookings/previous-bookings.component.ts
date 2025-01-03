@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
 import { ReservationService } from '../services/reservation.service';
 import { FlightsService } from '../services/flights.service';
 import { DestinationService } from '../services/destination.service';
@@ -18,9 +18,9 @@ interface BookingDisplay {
 }
 
 @Component({
-  selector: 'app-upcoming-bookings',
-  templateUrl: './upcoming-bookings.component.html',
-  styleUrls: ['./upcoming-bookings.component.css'],
+  selector: 'app-previous-bookings',
+  templateUrl: './previous-bookings.component.html',
+  styleUrls: ['./previous-bookings.component.css'],
   standalone: true,
   imports: [
     CommonModule,
@@ -28,22 +28,26 @@ interface BookingDisplay {
     MatButtonModule
   ]
 })
-export class UpcomingBookingsComponent implements OnInit {
-  upcomingBookings: BookingDisplay[] = [];
+export class PreviousBookingsComponent implements OnInit {
+  previousBookings: BookingDisplay[] = [];
 
   constructor(
+    private router: Router,
     private reservationService: ReservationService,
     private flightsService: FlightsService,
     private destinationService: DestinationService,
-    private identityService: IdentityService,
-    private router: Router
+    private identityService: IdentityService
   ) {}
 
   ngOnInit() {
-    this.loadUpcomingBookings();
+    this.loadPreviousBookings();
   }
 
-  private loadUpcomingBookings() {
+  viewReservationDetails(reservationCode: string) {
+    this.router.navigate(['reservation-details', reservationCode]);
+  }
+
+  private loadPreviousBookings() {
     const currentUser = this.identityService.getCurrentUser();
     const now = new Date();
     
@@ -54,12 +58,12 @@ export class UpcomingBookingsComponent implements OnInit {
         passenger => passenger.passportNumber === currentUser.passportNumber
       );
       const flight = this.flightsService.getFlight(reservation.flightNumber);
-      const isFutureFlight = flight ? new Date(flight.departureDate) > now : false;
+      const isPastFlight = flight ? new Date(flight.departureDate) < now : false;
       
-      return hasUser && isFutureFlight;
+      return hasUser && isPastFlight;
     });
 
-    this.upcomingBookings = userReservations.map(reservation => {
+    this.previousBookings = userReservations.map(reservation => {
       const flight = this.flightsService.getFlight(reservation.flightNumber)!;
       const destination = this.destinationService.getDestination(flight.destination)!;
       
@@ -69,11 +73,7 @@ export class UpcomingBookingsComponent implements OnInit {
         destination
       };
     }).sort((a, b) => 
-      new Date(a.flight.departureDate).getTime() - new Date(b.flight.departureDate).getTime()
+      new Date(b.flight.departureDate).getTime() - new Date(a.flight.departureDate).getTime()
     );
-  }
-
-  viewReservationDetails(reservation: Reservation) {
-    this.router.navigate(['/reservation-details', reservation.reservationCode]);
   }
 }

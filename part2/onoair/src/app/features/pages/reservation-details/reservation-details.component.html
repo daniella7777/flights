@@ -1,0 +1,37 @@
+<section>
+    <h2>Reservation Details</h2>
+    <div class="container">
+      @if (!error && reservation) {
+        <app-book-flight [flightNumber]="reservation.flightNumber"></app-book-flight>
+        
+        <mat-card class="passengers-card">
+          <mat-card-content class="p-4">
+            <div class="regular-text">
+              No. of passengers: {{reservation.numberOfPassengers}}
+            </div>
+            <div class="details-grid">
+              @for (passenger of reservation.passengers; track passenger.passportNumber; let i = $index) {
+                <div class="passenger-details">
+                  <div class="detail-row">
+                    <div class="label">Passenger {{i + 1}} Name:</div>
+                    <div class="value">{{passenger.name}}</div>
+                  </div>
+                  <div class="detail-row">
+                    <div class="label">Passport no.</div>
+                    <div class="value">{{passenger.passportNumber}}</div>
+                  </div>
+                </div>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      } @else {
+        <mat-card class="error-card">
+          <mat-card-content class="text-center">
+            <div class="error-title">Reservation Not Found</div>
+            <p class="error-message">The requested reservation does not exist in our system.</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </section>

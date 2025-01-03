@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -17,6 +17,7 @@ import { getAirportName } from '../../../shared/utils';
   styleUrls: ['./book-flight.component.css']
 })
 export class BookFlightComponent implements OnInit {
+  @Input() flightNumber?: string;
   flight?: Flight;
   error: boolean = false;
   getAirportName = getAirportName;
@@ -27,9 +28,11 @@ export class BookFlightComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const flightNumber = this.route.snapshot.paramMap.get('flightNumber');
-    if (flightNumber) {
-      this.flight = this.flightsService.getFlight(flightNumber);
+    const routeFlightNumber = this.route.snapshot.paramMap.get('flightNumber');
+    const finalFlightNumber = this.flightNumber || routeFlightNumber;
+    
+    if (finalFlightNumber) {
+      this.flight = this.flightsService.getFlight(finalFlightNumber);
       this.error = !this.flight;
     } else {
       this.error = true;
