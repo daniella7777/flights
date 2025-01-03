@@ -7,6 +7,8 @@ import { ManageFlightsComponent } from './features/pages/manage-flights/manage-f
 import { FlightPageComponent } from './features/pages/flight-page/flight-page.component';
 import { ManageDestinationsComponent } from './features/pages/manage-destinations/manage-destinations.component';
 import { DestinationPageComponent } from './features/pages/destination-page/destination-page.component';
+import { MyReservationsComponent } from './features/pages/my-reservations/my-reservations.component';
+import { UpcomingBookingsComponent } from './features/upcoming-bookings/upcoming-bookings.component';
 
 export const routes: Routes = [
     { path: 'help', component: HelpPageComponent },
@@ -16,5 +18,6 @@ export const routes: Routes = [
     { path: 'manage-flights' , component: ManageFlightsComponent},
     { path: 'flight-page/:flightNumber', component: FlightPageComponent },
     { path: 'manage-destinations', component: ManageDestinationsComponent},
-    { path: 'destination-page/:code', component: DestinationPageComponent}
+    { path: 'destination-page/:code', component: DestinationPageComponent},
+    { path: 'my-bookings', component: MyReservationsComponent},
 ];

@@ -1,0 +1,25 @@
+<div class="page-container">
+  <h1 class="mat-headline-4 page-title">Upcoming Bookings</h1>
+
+  <div class="bookings-container">
+    <mat-card *ngFor="let booking of upcomingBookings" class="booking-card mb-4">
+      <div class="booking-content">
+        <div class="destination-image">
+          <img [src]="booking.destination.picture" [alt]="booking.destination.name">
+        </div>
+        <div class="booking-details">
+          <mat-card-content>
+            <p><strong>Origin:</strong> {{booking.flight.origin}}</p>
+            <p><strong>Boarding:</strong> {{booking.flight.departureDate | date:'dd/MM/yyyy HH:mm'}}</p>
+            <p><strong>Destination:</strong> {{booking.destination.name}}</p>
+            <p><strong>Landing:</strong> {{booking.flight.arrivalDate | date:'dd/MM/yyyy HH:mm'}}</p>
+            <p><strong>No. of passengers:</strong> {{booking.reservation.numberOfPassengers}}</p>
+          </mat-card-content>
+        </div>
+        <div>
+          <button mat-raised-button color="primary">View</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
