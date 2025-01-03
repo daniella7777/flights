@@ -1,0 +1,147 @@
+.container {
+    padding: 40px;
+    max-width: 1000px;  /* Significantly increased width */
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;  /* Ensures true center positioning */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);  /* Perfect centering */
+    width: 100%;
+  }
+  
+  .bg-white {
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);  /* Enhanced shadow for prominence */
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .rounded-lg {
+    border-radius: 16px;
+  }
+  
+  .p-6 {
+    padding: 3rem;  /* Significantly increased padding */
+  }
+  
+  .text-2xl {
+    font-size: 2.5rem;  /* Larger title */
+    line-height: 3rem;
+    color: #000000;
+    text-align: left;
+    margin-bottom: 2.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .mb-6 {
+    margin-bottom: 3rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 2rem;  /* More spacing between elements */
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .gap-4 {
+    gap: 2rem;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+    color: #004080;
+    font-size: 1.5rem;  /* Significantly larger font for labels */
+  }
+  
+  /* Right column values */
+  .grid-cols-2 > div:nth-child(even) {
+    font-size: 1.5rem;  /* Matching size for values */
+    color: #2c5282;
+  }
+  
+  /* Error state styling - also enlarged */
+  .bg-red-50 {
+    background-color: #fff3f3;
+    width: 100%;
+    padding: 3rem;
+  }
+  
+  .border-red-200 {
+    border: 2px solid #fecaca;  /* Thicker border */
+  }
+  
+  .text-red-600 {
+    color: #dc2626;
+    font-size: 2rem;  /* Larger error message */
+  }
+  
+  .text-gray-600 {
+    color: #4b5563;
+    font-size: 1.4rem;
+  }
+  
+  .mt-2 {
+    margin-top: 1.5rem;
+  }
+  
+  .text-xl {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Enhanced hover effect for interactivity */
+  .bg-white:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      position: static;
+      transform: none;
+      height: auto;
+      min-height: 100vh;
+    }
+    
+    .p-6 {
+      padding: 1.5rem;
+    }
+    
+    .grid-cols-2 {
+      grid-template-columns: 1fr;
+    }
+    
+    .text-2xl {
+      font-size: 2rem;
+    }
+    
+    .font-semibold,
+    .grid-cols-2 > div:nth-child(even) {
+      font-size: 1.3rem;
+    }
+  }

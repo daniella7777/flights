@@ -1,0 +1,19 @@
+.site-footer {
+  background-color: #f9f9f9;
+  color: grey;
+  border-top: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.site-footer a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: grey;
+  margin-right: 20px;
+}

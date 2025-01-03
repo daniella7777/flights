@@ -1,0 +1,49 @@
+.site-header {
+  background-color: #004080;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.menu-button {
+  margin-right: auto;
+  color: white;
+  transform: scale(1.5);
+}
+
+/* Menu Styling */
+::ng-deep .mat-mdc-menu-panel {
+  background-color: white !important;
+}
+
+::ng-deep .mat-mdc-menu-item {
+  color: #004080 !important;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+::ng-deep .mat-mdc-menu-item:hover {
+  background-color: rgba(0, 64, 128, 0.1) !important;
+}
+
+.logo:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  transform: translateX(-50%) scale(1.05);
+  transition: all 0.2s ease;
+}
