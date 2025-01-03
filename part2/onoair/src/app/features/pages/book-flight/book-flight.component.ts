@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { Flight } from '../../models/flight.model';
-import { FlightsService } from '../../services/flights/flights.service';
+import { FlightsService } from '../../services/flights.service';
 import { getAirportName } from '../../../shared/utils';
 
 @Component({

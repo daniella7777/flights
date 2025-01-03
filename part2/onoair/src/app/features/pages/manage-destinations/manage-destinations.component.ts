@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Destination } from '../../models/destination.model';
-import { DestinationService } from '../../services/destinations/destination.service';
+import { DestinationService } from '../../services/destination.service';
 import { getAirportName } from '../../../shared/utils';
 
 @Component({

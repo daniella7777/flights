@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Flight } from '../../models/flight.model';
+import { Flight } from '../models/flight.model';
 import {
     generateDatesForUpcomingWeek,
     generateDatesForFutureAfterWeek,
     generateDatesForPastYear
-} from '../../../shared/utils';
+} from '../../shared/utils';
 
 @Injectable({
     providedIn: 'root',

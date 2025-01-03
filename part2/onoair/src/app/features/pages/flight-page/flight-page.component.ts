@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { FlightsService } from '../../services/flights/flights.service';
+import { FlightsService } from '../../services/flights.service';
 import { Flight } from '../../models/flight.model';
 import { getAirportName } from '../../../shared/utils';
 

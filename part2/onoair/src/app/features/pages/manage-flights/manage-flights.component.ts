@@ -10,7 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Flight } from '../../models/flight.model';
-import { FlightsService } from '../../services/flights/flights.service';
+import { FlightsService } from '../../services/flights.service';
 import { Router } from '@angular/router';
 import { getAirportName } from '../../../shared/utils';
 
