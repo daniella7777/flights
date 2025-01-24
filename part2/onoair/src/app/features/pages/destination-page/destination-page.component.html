@@ -1,0 +1,49 @@
+<div class="container mx-auto p-4">
+    @if (destination) {
+      <div class="bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-bold mb-6">Destination Details</h1>
+        <div class="space-y-4">
+          <div class="destination-image mb-6">
+            <img [src]="destination.picture" [alt]="destination.name" class="w-full h-64 object-cover rounded-lg">
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="font-semibold">City:</div>
+            <div>{{ destination.name }}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="font-semibold">Airport Code:</div>
+            <div>{{ destination.code }}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="font-semibold">Airport Name:</div>
+            <div>{{ destination.airportName }}</div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="font-semibold">Airport Website:</div>
+            <div>
+              <a [href]="destination.airportWebsite" target="_blank" class="text-blue-600 hover:text-blue-800 underline">
+                {{ destination.airportWebsite }}
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="font-semibold">Contact Email:</div>
+            <div>
+              <a [href]="'mailto:' + destination.email" class="text-blue-600 hover:text-blue-800 underline">
+                {{ destination.email }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+        <h2 class="text-xl text-red-600 font-semibold">
+          Destination Not Found
+        </h2>
+        <p class="text-gray-600 mt-2">
+          The requested destination code does not exist in our system.
+        </p>
+      </div>
+    }
+  </div>

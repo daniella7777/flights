@@ -1,0 +1,58 @@
+/* last-minute-flights.component.css */
+.grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  mat-card {
+    flex: 0 0 auto;
+    width: 200px;
+  }
+  
+  mat-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .mat-mdc-card-image {
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  mat-card-content {
+    padding: 0.5rem !important;
+  }
+  
+  mat-card-content p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  mat-card-content p:first-child {
+    font-weight: 500;
+  }
+  
+  :host {
+    display: block;
+    margin-bottom: 2rem;
+  }
+  
+  section {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  h2 {
+    margin: 2rem 0 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+    font-family: 'Lato', Arial, sans-serif;
+  }
