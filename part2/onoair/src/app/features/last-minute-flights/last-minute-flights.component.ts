@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
-import { FlightsService } from '../services/flights/flights.service';
-import { DestinationService } from '../services/destinations/destination.service';
+import { FlightsService } from '../services/flights.service';
+import { DestinationService } from '../services/destination.service';
 import { Flight } from '../models/flight.model';
 import { Destination } from '../models/destination.model';
 
