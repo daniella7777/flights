@@ -1,0 +1,49 @@
+<h2>Manage Destinations</h2>
+
+<div class="table-container">
+  <table mat-table [dataSource]="destinations" class="mat-elevation-z8">
+    <ng-container matColumnDef="picture">
+      <th mat-header-cell *matHeaderCellDef>Picture</th>
+      <td mat-cell *matCellDef="let destination">
+        <img [src]="destination.picture" alt="{{destination.name}}" class="destination-image">
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef>Code</th>
+      <td mat-cell *matCellDef="let destination">{{destination.code}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>City Name</th>
+      <td mat-cell *matCellDef="let destination">{{destination.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="airportName">
+      <th mat-header-cell *matHeaderCellDef>Airport Name</th>
+      <td mat-cell *matCellDef="let destination">{{destination.airportName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="airportWebsite">
+      <th mat-header-cell *matHeaderCellDef>Website</th>
+      <td mat-cell *matCellDef="let destination">{{destination.airportWebsite}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let destination">{{destination.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let destination">
+        <mat-icon class="edit-icon" (click)="editDestination(destination, $event)">edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (click)="navigateToDestinationPage(row)" 
+        class="clickable-row"></tr>
+  </table>
+</div>

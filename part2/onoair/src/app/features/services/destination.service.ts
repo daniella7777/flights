@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Destination } from '../../models/destination.model';
+import { Destination } from '../models/destination.model';
 
 @Injectable({
   providedIn: 'root',
@@ -90,5 +90,9 @@ export class DestinationService {
 
   getDestinations(): Destination[] {
     return this.destinations;
+  }
+
+  getDestination(code: string): Destination | undefined {
+    return this.destinations.find(destination => destination.code === code);
   }
 }
